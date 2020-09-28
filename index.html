@@ -11,6 +11,7 @@
 	  margin-bottom:20pt;
       }
     </style>
+    <script src="ichigojam.js"></script>
     <script src="index.js"></script>
   </head>
   <body style="background-color:#ffffff;">
@@ -20,8 +21,28 @@
       It has 8x8 dot monochrome glyphs and the bitmap of a character could be represented in 8 bytes.<br>
       So, you can simply embed it into your own program in any programming language as an array of 64-bit integers.
     </p>
-    
     <hr>
+
+
+    <h2>Examples</h2>
+    <p>
+      <canvas id="kawakudari" width="512" height="384"></canvas>
+    </p>
+    <dl class="examples">
+      <dt><a href="https://github.com/mitsuji/kawakudari_html_canvas_js">kawakudari_html_canvas_js</a></dt>
+      <dd><a href="https://ichigojam.github.io/print/en/KAWAKUDARI.html">Kawakudari Game</a> with <a href="https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API">HTML Canvas API</a> (JavaScript)</dd>
+      <dt><a href="https://github.com/mitsuji/kawakudari_processing">kawakudari_processing</a></dt>
+      <dd><a href="https://ichigojam.github.io/print/en/KAWAKUDARI.html">Kawakudari Game</a> with <a href="https://processing.org/">Processing</a> (Java)</dd>
+      <dt><a href="https://github.com/mitsuji/kawakudari_processing_python">kawakudari_processing_python</a></dt>
+      <dd><a href="https://ichigojam.github.io/print/en/KAWAKUDARI.html">Kawakudari Game</a> with <a href="https://processing.org/">Processing</a> (Python)</dd>
+      <dt><a href="https://github.com/mitsuji/kawakudari_of">kawakudari_of</a></dt>
+      <dd><a href="https://ichigojam.github.io/print/en/KAWAKUDARI.html">Kawakudari Game</a> with <a href="https://openframeworks.cc/">openFrameworks</a> (C++)</dd>
+      <dt><a href="https://github.com/mitsuji/kawakudari-pfh">kawakudari-pfh</a></dt>
+      <dd><a href="https://ichigojam.github.io/print/en/KAWAKUDARI.html">Kawakudari Game</a> with <a href="https://hackage.haskell.org/package/processing-for-haskell">processing-for-haskell</a> (Haskell)</dd>
+    </dl>
+    <hr>
+
+
     <h2>Download</h2>
     <p>
       Select a version to display the sample in the box below and download it.
@@ -42,23 +63,9 @@
     </p>
     
     <p>
-      <canvas id="main" width="528" height="528"></canvas>
+      <canvas id="sample" width="528" height="528"></canvas>
     </p>
 
-    <hr>
-
-
-    <h2>Examples</h2>
-    <dl class="examples">
-      <dt><a href="https://github.com/mitsuji/kawakudari_processing">kawakudari_processing</a></dt>
-      <dd><a href="https://ichigojam.github.io/print/en/KAWAKUDARI.html">Kawakudari Game</a> with <a href="https://processing.org/">Processing</a> (Java)</dd>
-      <dt><a href="https://github.com/mitsuji/kawakudari_processing_python">kawakudari_processing_python</a></dt>
-      <dd><a href="https://ichigojam.github.io/print/en/KAWAKUDARI.html">Kawakudari Game</a> with <a href="https://processing.org/">Processing</a> (Python)</dd>
-      <dt><a href="https://github.com/mitsuji/kawakudari_of">kawakudari_of</a></dt>
-      <dd><a href="https://ichigojam.github.io/print/en/KAWAKUDARI.html">Kawakudari Game</a> with <a href="https://openframeworks.cc/">openFrameworks</a> (C++)</dd>
-      <dt><a href="https://github.com/mitsuji/kawakudari-pfh">kawakudari-pfh</a></dt>
-      <dd><a href="https://ichigojam.github.io/print/en/KAWAKUDARI.html">Kawakudari Game</a> with <a href="https://hackage.haskell.org/package/processing-for-haskell">processing-for-haskell</a> (Haskell)</dd>
-    </dl>
     <hr>
 
 
@@ -67,6 +74,8 @@
     (<a href="https://creativecommons.org/licenses/by/4.0/">CC BY</a> <a href="https://ichigojam.net">IchigoJam</a> &amp; <a href="https://mitsuji.org">mitsuji.org</a>)<br>
     This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
     <hr>
+
+
   </body>
 </html>
   

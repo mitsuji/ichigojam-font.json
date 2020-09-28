@@ -1,41 +1,125 @@
+var kawakudari;
+var frame;
+var running;
+var x;
+
+var sample;
+
 window.onload = function () {
+    document.addEventListener("keydown",function(e) {
+        if ((!running) && e.key === "Enter") {
+	    kawakudari.cls();
+	    resetKawakudari();
+	}
+    });
+    document.getElementById("kawakudari").addEventListener("click",function(e) {
+	if (!running) {
+	    kawakudari.cls();
+	    resetKawakudari();
+	} else {
+	    var clientRect = this.getBoundingClientRect() ;
+	    var clickX = e.pageX - (clientRect.left + window.pageXOffset);
+	    if (clickX < 256) {
+		x --;
+	    } else {
+		x ++;
+	    }
+	}
+    });
+    document.getElementById("kawakudari").addEventListener("touchstart",function(e) {
+	if (!running) {
+	    kawakudari.cls();
+	    resetKawakudari();
+	} else {
+	    var touch = e.changedTouches[0] ;	    
+	    var clientRect = this.getBoundingClientRect() ;
+	    var clickX = touch.pageX - (clientRect.left + window.pageXOffset);
+	    if (clickX < 256) {
+		x --;
+	    } else {
+		x ++;
+	    }
+	}
+    });
+    resetKawakudari();
+    initKawakudari();
+
     
     document.getElementById("ichigojam-font-1.4").addEventListener("click",function(e){
-	showFont('ichigojam-font-1.4');
+	showSample('ichigojam-font-1.4');
     });
-
     document.getElementById("ichigojam-font-1.2").addEventListener("click",function(e){
-	showFont('ichigojam-font-1.2');
+	showSample('ichigojam-font-1.2');
     });
-    
-    showFont('ichigojam-font-1.4');
+    initSample();
+    showSample('ichigojam-font-1.4');
+}
 
+function resetKawakudari() {
+    frame = 0;
+    running = true;
+    x = 15;
+}
+function initKawakudari() {
+    var canvas = document.getElementById("kawakudari");
+    var context = canvas.getContext('2d');
+    if (!context) {
+        alert("HTML canvas 2d context is not supported in your environment...")
+        return;
+    }
+
+    kawakudari = newStd15(context,512,384,32,24);
+
+    document.addEventListener("keydown",function(e) {
+        if (e.key === "ArrowLeft")  x--;
+        if (e.key === "ArrowRight") x++;
+    });
+
+    setInterval(function() {
+        if (!running) return;
+        if (frame % 5 == 0) {
+            kawakudari.locate(x,5);
+            kawakudari.putc('0'.charCodeAt(0));
+            kawakudari.locate(Math.floor(Math.random() * 32.0),23);
+            kawakudari.putc('*'.charCodeAt(0));
+            kawakudari.scroll(DIR_UP);
+            if (kawakudari.scr(x,5) != 0) {
+                kawakudari.locate(0,23);
+                kawakudari.putstr("Game Over...");
+                kawakudari.putnum(frame);
+                running = false;
+            }
+        }
+        kawakudari.drawScreen();
+        ++frame;
+    },16);
 }
 
 
-function showFont(name) {
+function initSample() {
+    var canvas = document.getElementById("sample");
+    var context = canvas.getContext('2d');
+    if (!context) {
+	alert("HTML canvas 2d context is not supported in your environment...")
+	return;
+    }
+    
+    sample = newStd15(context,528,528,33,33);
+    for(var y = 0; y < 0x10; ++y) {
+	for(var x = 0; x < 0x10; ++x) {
+	    sample.setChar(x*2+1,y*2+1,y*0x10 +x);
+	}
+    }
+}
+function showSample(name) {
     document.getElementById(name).checked = true;
 
     var req = new XMLHttpRequest();
     req.open('GET', name + '.json');
     req.onload = function() {
         if (req.status === 200) {
-	    var font = JSON.parse(req.responseText);
-	    
-	    var canvas = document.getElementById("main");
-	    var context = canvas.getContext('2d');
-	    if (!context) {
-		alert("HTML canvas 2d context is not supported in your environment...")
-		return;
-	    }
-
-	    var charBuff = newCharBuff(context,font,528,528,33,33);
-	    for(var y = 0; y < 0x10; ++y) {
-		for(var x = 0; x < 0x10; ++x) {
-		    charBuff.putChar(x*2+1,y*2+1,y*0x10 +x);
-		}
-	    }
-	    charBuff.draw();
+	    ICHIGOJAM_FONT = JSON.parse(req.responseText);
+	    sample.drawScreen();
 	    
         } else {
             alert("failed to load font file...");
@@ -45,63 +129,3 @@ function showFont(name) {
 
 }
 
-
-
-
-const CHAR_W = 8;
-const CHAR_H = 8;
-
-var newCharBuff = function(context, font, screen_w, screen_h, buff_w, buff_h){
-    var that = {};
-    var dot_w = screen_w / buff_w / CHAR_W;
-    var dot_h = screen_h / buff_h / CHAR_H;
-    var buff = new Array(buff_w * buff_h);
-    
-    that.putChar = function (x, y, c) {
-	buff [y*buff_w+x] = c
-    }
- 
-    that.clear = function () {
-	for (var y = 0; y < buff_h; ++y) {
-	    for (var x = 0; x < buff_w; ++x) {
-		buff [y*buff_w+x] = 0;
-	    }
-	}
-    }
-
-    that.mapChar = function (cx, cy, c) {
-	var glyph = font[c];
-	var hiBits = parseInt(glyph.substring(0,8),16);
-	var loBits = parseInt(glyph.substring(8),  16);
-	for(var y = 0 ; y < CHAR_H; ++y) {
-	    var line;
-	    if(y < 4) {
-		line = (hiBits >> (CHAR_W*(CHAR_H-y-1-4))) & 0xff;
-	    } else {
-		line = (loBits >> (CHAR_W*(CHAR_H-y-1))) & 0xff;
-	    }
-	    for(var x = 0 ; x < CHAR_W; ++x) {
-		if((line >> (CHAR_W-x-1)) & 0x1){
-		    var x0 = (cx*CHAR_W+x)*dot_w;
-		    var y0 = (cy*CHAR_H+y)*dot_h;
-		    context.fillRect(x0,y0,dot_w,dot_h);
-		}
-	    }
-	}
-    }
-    
-    that.draw = function() {
-	context.fillStyle = "rgb(0,0,0)";
-	context.fillRect(0,0,screen_w,screen_h);
-	context.fillStyle = "rgb(255,255,255)";
-	for (var y = 0; y < buff_h; ++y) {
-	    for (var x = 0; x < buff_w; ++x) {
-		that.mapChar(x, y, buff [y*buff_w+x]);
-	    }
-	}  
-    }
-    
-    that.clear();
-    
-    return that;
-}
