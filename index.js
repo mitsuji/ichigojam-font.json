@@ -25,6 +25,7 @@ window.onload = function () {
 		x ++;
 	    }
 	}
+	e.preventDefault();
     });
     document.getElementById("kawakudari").addEventListener("touchstart",function(e) {
 	if (!running) {
@@ -40,6 +41,7 @@ window.onload = function () {
 		x ++;
 	    }
 	}
+	e.preventDefault();
     });
     resetKawakudari();
     initKawakudari();
