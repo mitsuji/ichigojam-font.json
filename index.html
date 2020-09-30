@@ -10,6 +10,12 @@
       dl.examples dd {
 	  margin-bottom:20pt;
       }
+      table,th,td {
+          border: solid 1px;
+      }
+      caption,th,td {
+	  padding:5px;
+      }
     </style>
     <script src="ichigojam.js"></script>
     <script src="index.js"></script>
@@ -28,18 +34,56 @@
     <p>
       <canvas id="kawakudari" width="512" height="384"></canvas>
     </p>
-    <dl class="examples">
-      <dt><a href="https://github.com/mitsuji/kawakudari_html_canvas_js">kawakudari_html_canvas_js</a></dt>
-      <dd><a href="https://ichigojam.github.io/print/en/KAWAKUDARI.html">Kawakudari Game</a> with <a href="https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API">HTML Canvas API</a> (JavaScript)</dd>
-      <dt><a href="https://github.com/mitsuji/kawakudari_processing">kawakudari_processing</a></dt>
-      <dd><a href="https://ichigojam.github.io/print/en/KAWAKUDARI.html">Kawakudari Game</a> with <a href="https://processing.org/">Processing</a> (Java)</dd>
-      <dt><a href="https://github.com/mitsuji/kawakudari_processing_python">kawakudari_processing_python</a></dt>
-      <dd><a href="https://ichigojam.github.io/print/en/KAWAKUDARI.html">Kawakudari Game</a> with <a href="https://processing.org/">Processing</a> (Python)</dd>
-      <dt><a href="https://github.com/mitsuji/kawakudari_of">kawakudari_of</a></dt>
-      <dd><a href="https://ichigojam.github.io/print/en/KAWAKUDARI.html">Kawakudari Game</a> with <a href="https://openframeworks.cc/">openFrameworks</a> (C++)</dd>
-      <dt><a href="https://github.com/mitsuji/kawakudari-pfh">kawakudari-pfh</a></dt>
-      <dd><a href="https://ichigojam.github.io/print/en/KAWAKUDARI.html">Kawakudari Game</a> with <a href="https://hackage.haskell.org/package/processing-for-haskell">processing-for-haskell</a> (Haskell)</dd>
-    </dl>
+    <table>
+      <caption style="text-align:left;">
+	<a href="https://ichigojam.github.io/print/en/KAWAKUDARI.html">Kawakudari Game</a>
+      </caption>
+      <tr>
+	<th>title</th>
+	<th>framework / library</th>
+	<th>language</th>
+      </tr>
+      <tr>
+	<td><a href="https://github.com/mitsuji/kawakudari_html_canvas_js">kawakudari_html_canvas_js</a></td>
+	<td><a href="https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API">HTML Canvas API</a></td>
+	<td>JavaScript</td>
+      </tr>
+      <tr>
+	<td><a href="https://github.com/mitsuji/kawakudari_html_canvas_ts">kawakudari_html_canvas_ts</a></td>
+	<td><a href="https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API">HTML Canvas API</a></td>
+	<td>TypeScript</td>
+      </tr>
+      <tr>
+	<td><a href="https://github.com/mitsuji/kawakudari_processing">kawakudari_processing</a></td>
+	<td><a href="https://processing.org/">Processing</a></td>
+	<td>Java</td>
+      </tr>
+      <tr>
+	<td><a href="https://github.com/mitsuji/kawakudari_processing_python">kawakudari_processing_python</a></td>
+	<td><a href="https://processing.org/">Processing</a> Python Mode</td>
+	<td>Python</td>
+      </tr>
+      <tr>
+	<td><a href="https://github.com/mitsuji/kawakudari_of">kawakudari_of</a></td>
+	<td><a href="https://openframeworks.cc/">openFrameworks</a></td>
+	<td>C++</td>
+      </tr>
+      <tr>
+	<td><a href="https://github.com/mitsuji/kawakudari_of_c">kawakudari_of_c</a></td>
+	<td><a href="https://openframeworks.cc/">openFrameworks</a></td>
+	<td>C</td>
+      </tr>
+      <tr>
+	<td><a href="https://github.com/mitsuji/kawakudari_opentk">kawakudari_opentk</a></td>
+	<td><a href="https://opentk.net/">OpenTK</a></td>
+	<td>C#</td>
+      </tr>
+      <tr>
+	<td><a href="https://github.com/mitsuji/kawakudari-pfh">kawakudari-pfh</a></td>
+	<td><a href="https://hackage.haskell.org/package/processing-for-haskell">processing-for-haskell</a></td>
+	<td>Haskell</td>
+      </tr>
+    </table>
     <hr>
 
 
