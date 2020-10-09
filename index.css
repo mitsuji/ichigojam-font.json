@@ -1,0 +1,31 @@
+body {
+    background-color:#ffffff;
+}
+
+p.content-lang {
+    text-align:right;
+}
+
+dl.examples dt {
+    margin-bottom:5pt;
+}
+
+dl.examples dd {
+    margin-bottom:20pt;
+}
+
+table,th,td {
+    border: solid 1px;
+}
+
+caption,th,td {
+    padding:5px;
+}
+
+td.rating {
+    text-align:center;
+}
+
+div.sample-select {
+    margin-bottom:5pt;
+}

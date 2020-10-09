@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
   <head>
     <meta charset="UTF-8">
     <title>ichigojam-font.json</title>
@@ -9,14 +9,14 @@
   </head>
   <body>
     <p class="content-lang">
-      [English] | [<a href="index_ja.html">日本語</a>]
+      [<a href="index.html">English</a>] | [日本語]
     </p>
 
     <h1>ichigojam-font.json</h1>
     <p>
-      &quot;IchigoJam Font&quot; is the font used by <a href="https://ichigojam.net/index-en.html">IchigoJam</a>.<br>
-      It has 8*8 dot monochrome glyphs and the bitmap of a character could be represented in 8 bytes.<br>
-      So, you can simply embed it into your own program in any programming language as an array of 64-bit integers.
+      「IchigoJam Font」は <a href="https://ichigojam.net/index-en.html">IchigoJam</a> で使われているフォントです。<br>
+      このフォントは 8*8ドットの白黒のグリフを定義したもので、1文字を8バイトで表現できるため、<br>
+      任意のプログラミング言語を使ったプログラムに64ビット整数の配列として簡単に組み込むことができます。
     </p>
     <hr>
 
@@ -24,29 +24,29 @@
     <h2 id="examples">Examples</h2>
 
     <h3 id="kawakudari-game">
-      <a href="https://ichigojam.github.io/print/en/KAWAKUDARI.html">Kawakudari Game</a> in several programming languages<br>
+      <a href="https://ichigojam.github.io/print/ja/KAWAKUDARI.html">かわくだりゲーム</a> を様々なプログラミング言語で<br>
     </h3>
     <p>
       <canvas id="kawakudari" width="512" height="384"></canvas>
     </p>
     <p>
-      The functions locate, putc, putstr, putnum, scr, cls, scroll and pset in <a href="https://github.com/IchigoJam/c4ij/blob/master/src/std15.h">std15.h</a> from <a href="https://github.com/IchigoJam/c4ij">c4ij</a> are also implemented.
+      <a href="https://github.com/IchigoJam/c4ij">c4ij</a> の <a href="https://github.com/IchigoJam/c4ij/blob/master/src/std15.h">std15.h</a> を参考に関数 locate, putc, putstr, putnum, scr, cls, scroll, pset も実装してあります。
     </p>
 
     <table>
       <tr>
-	<th>language</th>
+	<th>言語</th>
 	<th>framework / library</th>
 	<th>project</th>
-	<th>rating</th>
-	<th>comment</th>
+	<th>評価</th>
+	<th>コメント</th>
       </tr>
       <tr>
 	<td>JavaScript</td>
 	<td><a href="https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API">HTML Canvas API</a></td>
 	<td><a href="https://github.com/mitsuji/kawakudari_html_canvas_js">kawakudari_html_canvas_js</a></td>
 	<td class="rating">☆☆☆☆☆</td>
-	<td>Very simple and easy.</td>
+	<td>超簡単シンプル。</td>
       </tr>
       <tr>
 	<td>TypeScript</td>
@@ -81,21 +81,21 @@
 	<td><a href="https://openframeworks.cc/">openFrameworks</a></td>
 	<td><a href="https://github.com/mitsuji/kawakudari_of">kawakudari_of</a></td>
 	<td class="rating">☆☆☆☆</td>
-	<td>Depend on MSYS2 in Windows.</td>
+	<td>Windows で MSYS2 に依存。</td>
       </tr>
       <tr>
 	<td>C</td>
 	<td><a href="https://openframeworks.cc/">openFrameworks</a></td>
 	<td><a href="https://github.com/mitsuji/kawakudari_of_c">kawakudari_of_c</a></td>
 	<td class="rating">☆☆☆☆</td>
-	<td>Depend on MSYS2 in Windows.</td>
+	<td>Windows で MSYS2 に依存。</td>
       </tr>
       <tr>
 	<td>C</td>
 	<td><a href="https://liballeg.org/">Allegro</a></td>
 	<td><a href="https://github.com/mitsuji/kawakudari_allegro">kawakudari_allegro</a></td>
 	<td class="rating">☆☆☆</td>
-	<td>Depend on MinGW in Windows.</td>
+	<td>Windows で MinGW に依存。</td>
       </tr>
       <tr>
 	<td>C#</td>
@@ -109,7 +109,7 @@
 	<td><a href="https://github.com/faiface/pixel">pixel</a></td>
 	<td><a href="https://github.com/mitsuji/kawakudari_pixel">kawakudari_pixel</a></td>
 	<td class="rating">☆☆☆☆</td>
-	<td>Depend on MSYS2 in Windows.</td>
+	<td>Windows で MSYS2 に依存。</td>
       </tr>
       <tr>
 	<td>Go</td>
@@ -130,7 +130,7 @@
 	<td><a href="https://nannou.cc">nannou</a></td>
 	<td><a href="https://github.com/mitsuji/kawakudari_nannou">kawakudari_nannou</a></td>
 	<td class="rating">☆☆☆☆</td>
-	<td>Depend on <a href="https://www.khronos.org/vulkan/">Vulkan</a> hardware.</td>
+	<td><a href="https://www.khronos.org/vulkan/">Vulkan</a> 対応のハードに依存。</td>
       </tr>
       <tr>
 	<td>Rust</td>
@@ -144,7 +144,7 @@
 	<td><a href="https://arcade.academy/">Arcade</a></td>
 	<td><a href="https://github.com/mitsuji/kawakudari_arcade">kawakudari_arcade</a></td>
 	<td class="rating">☆☆☆☆</td>
-	<td>Depend on OpenGL 3.3 hardware.</td>
+	<td>OpenGL 3.3 対応のハードに依存。</td>
       </tr>
       <tr>
 	<td>Lua</td>
@@ -166,7 +166,7 @@
 
     <h2 id="download">Download</h2>
     <p>
-      Select a version to display the sample in the box below and download it.
+      バージョンを選択すると下にサンプルが表示されます。
       <form>
 	<div class="sample-select">
 	  <input type="radio" name="font-version" id="ichigojam-font-1.4">
